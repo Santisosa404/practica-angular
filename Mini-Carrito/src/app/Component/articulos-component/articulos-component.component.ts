@@ -49,5 +49,13 @@ export class ArticulosComponentComponent implements OnInit {
   }
   eliminar(articulo:Articulo):void{
     this.listaArticulos.splice(this.buscarPorId(articulo.id),1);
+    this.total=0;
+    this.listaArticulos.forEach(articulo => {
+     if(articulo.precioRebajado!=undefined){
+       this.total+=articulo.cantidad*articulo.precioRebajado;
+     }else{
+     this.total+=articulo.cantidad*articulo.precioOriginal;
+     }
+   });
   }
 }
