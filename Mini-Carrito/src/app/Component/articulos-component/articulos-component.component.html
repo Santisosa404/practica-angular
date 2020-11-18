@@ -43,3 +43,88 @@
     </div>
   </div>
 </nav>
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Carrito Pull And Bear</h1>
+  </div>
+</section>
+<div class="container mb-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Nº</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Talla</th>
+              <th scope="col" class="text-center">Cantidad</th>
+              <th scope="col" class="text-right">Precio</th>
+              <th></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let articulo of listaArticulos; let i = index">
+              <td>{{i+1}}</td>
+              <td><img src="https://dummyimage.com/50x50/55595c/fff" /></td>
+              <td>{{articulo.nombre | uppercase}}</td>
+              <td>{{articulo.talla}}</td>
+              <td style="text-align: center;"><input type="number" value={{articulo.cantidad}}
+                  [(ngModel)]="articulo.cantidad" (change)="ngOnChanges($event)" min="1" max="100" step="1" /></td>
+
+              <td class="text-right"><span *ngIf="articulo.precioRebajado!=undefined;"
+                  style="text-decoration: line-through;">{{articulo.precioOriginal | currency:'EUR'}}</span> <span
+                  *ngIf="articulo.precioRebajado==undefined;">{{articulo.precioOriginal*articulo.cantidad| currency:'EUR'}}</span>
+                <br>
+                <span *ngIf="articulo.precioRebajado !=undefined" id="precioRebajado">{{articulo.precioRebajado | currency:'EUR'}}</span>
+
+              </td>
+              <td class="text-right"><button class="btn btn-sm btn-danger" (click)="eliminar(articulo)" ><i class="fa fa-trash"></i></button></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Envio</td>
+              <td class="text-right">Gratis</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><strong>Total</strong></td>
+              <td class="text-right"><strong>{{total | currency:'EUR'}}</strong></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col mb-2">
+      <div class="row">
+        <div class="col-sm-12  col-md-6">
+          <button class="btn btn-block btn-light">Continue Shopping</button>
+        </div>
+        <div class="col-sm-12 col-md-6 text-right">
+          <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<footer>
+  <div class="col-12 col-md">
+    <p>Copyright Pull and Bear ©</p>
+    <small > {{ fecha | date:'medium' }}</small>
+  </div>
+</footer>
