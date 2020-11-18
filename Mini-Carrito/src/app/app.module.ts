@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticulosComponentComponent } from './Component/articulos-component/articulos-component.component';
 import {ListaArticulosComponentComponent} from './Component/lista-articulos-component/lista-articulos-component.component';
+import { BannerComponentComponent } from './Component/banner-component/banner-component.component';
 @NgModule({
   declarations: [
     AppComponent,
     ArticulosComponentComponent,
-    ListaArticulosComponentComponent
+    ListaArticulosComponentComponent,
+    BannerComponentComponent
   ],
   imports: [
     BrowserModule,
