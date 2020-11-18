@@ -5,11 +5,12 @@ import {FormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticulosComponentComponent } from './Component/articulos-component/articulos-component.component';
-
+import {ListaArticulosComponentComponent} from './Component/lista-articulos-component/lista-articulos-component.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ArticulosComponentComponent
+    ArticulosComponentComponent,
+    ListaArticulosComponentComponent
   ],
   imports: [
     BrowserModule,
