@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { ArticulosComponentComponent } from './Component/articulos-component/articulos-component.component';
 import {ListaArticulosComponentComponent} from './Component/lista-articulos-component/lista-articulos-component.component';
 import { BannerComponentComponent } from './Component/banner-component/banner-component.component';
+import { SimboloEuroPipe } from './simbolo-euro.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     ArticulosComponentComponent,
     ListaArticulosComponentComponent,
-    BannerComponentComponent
+    BannerComponentComponent,
+    SimboloEuroPipe
   ],
   imports: [
     BrowserModule,

@@ -1,131 +1,31 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Pull And Bear</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-      <ul class="navbar-nav m-auto">
-        <li class="nav-item m-auto">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="category.html">Categories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="product.html">Product</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="contact.html">Cart <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-
-      <form class="form-inline my-2 my-lg-0">
-        <div class="input-group input-group-sm">
-          <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
-            placeholder="Search...">
-          <div class="input-group-append">
-            <button type="button" class="btn btn-secondary btn-number">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </div>
-        <a class="btn btn-success btn-sm ml-3" href="cart.html">
-          <i class="fa fa-shopping-cart"></i> Cart
-          <span class="badge badge-light">3</span>
-        </a>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-1">
+    {{i+1}}
   </div>
-</nav>
-
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">Carrito Pull And Bear</h1>
+  <div class="col-2">
+    <img src="https://dummyimage.com/50x50/55595c/fff" />
   </div>
-<app-banner-component></app-banner-component>
-</section>
-<div class="container mb-4">
-  <div class="row">
-    <div class="col-12">
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Nº</th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Producto</th>
-              <th scope="col">Talla</th>
-              <th scope="col" class="text-center">Cantidad</th>
-              <th scope="col" class="text-right">Precio</th>
-              <th></th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let articulo of listaArticulos; let i = index">
-              <td>{{i+1}}</td>
-              <td><img src="https://dummyimage.com/50x50/55595c/fff" /></td>
-              <td>{{articulo.nombre | uppercase}}</td>
-              <td>{{articulo.talla}}</td>
-              <td style="text-align: center;"><input type="number" value={{articulo.cantidad}}
-                  [(ngModel)]="articulo.cantidad" (change)="ngOnChanges($event)" min="1" max="100" step="1" /></td>
-
-              <td class="text-right"><span *ngIf="articulo.precioRebajado!=undefined;"
-                  style="text-decoration: line-through;">{{articulo.precioOriginal | currency:'EUR'}}</span> <span
-                  *ngIf="articulo.precioRebajado==undefined;">{{articulo.precioOriginal*articulo.cantidad| currency:'EUR'}}</span>
-                <br>
-                <span *ngIf="articulo.precioRebajado !=undefined" id="precioRebajado">{{articulo.precioRebajado | currency:'EUR'}}</span>
-
-              </td>
-              <td class="text-right"><button class="btn btn-sm btn-danger" (click)="eliminar(articulo)" ><i class="fa fa-trash"></i></button></td>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Envio</td>
-              <td class="text-right">Gratis</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><strong>Total</strong></td>
-              <td class="text-right"><strong>{{total | currency:'EUR'}}</strong></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="col mb-2">
-      <div class="row">
-        <div class="col-sm-12  col-md-6">
-          <button class="btn btn-block btn-light">Continue Shopping</button>
-        </div>
-        <div class="col-sm-12 col-md-6 text-right">
-          <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
-        </div>
-      </div>
-    </div>
+  <div class="col-5">
+    {{articulo.nombre | uppercase}}
   </div>
+  <div class="col-1">
+    {{articulo.talla}}
+  </div>
+  <div class="col-1">
+    <input type="number" value={{articulo.cantidad}}
+    [(ngModel)]="articulo.cantidad" (change)="cambio($event)"  min="1" max="100" step="1" />
+  </div>
+  <div class="col-1">
+    <span *ngIf="articulo.precioRebajado!=undefined;"
+    style="text-decoration: line-through;">{{articulo.precioOriginal | simboloEuro}}</span> <span
+    *ngIf="articulo.precioRebajado==undefined;">{{articulo.precioOriginal*articulo.cantidad| simboloEuro}}</span>
+  <br>
+  <span *ngIf="articulo.precioRebajado !=undefined" id="precioRebajado">{{articulo.precioRebajado | simboloEuro}}</span>
+  </div>
+  <div class="col-1"><button class="btn btn-sm btn-danger"  (click)="decirEliminar($event)" ><i class="fa fa-trash"></i></button></div>
 </div>
 
-
-
-<footer>
-  <div class="col-12 col-md">
-    <p>Copyright Pull and Bear ©</p>
-    <small > {{ fecha | date:'medium' }}</small>
-  </div>
-</footer>
+<div class="row">
+<div class="col"><hr></div>
+</div>
