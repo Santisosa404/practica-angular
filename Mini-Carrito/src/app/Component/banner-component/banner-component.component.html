@@ -1,0 +1,2 @@
+<img class="media-object" *ngIf="comprobarSexo()" src="assets/bannerMujer.jpg" (click)="cambiarSexo('H')">
+<img class="media-object" style="width: 46%;" *ngIf="!comprobarSexo()" src="assets/bannerHombre.jpg" (click)="cambiarSexo('M')">
