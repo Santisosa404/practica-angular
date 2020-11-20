@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="row"><div class="col"><hr></div></div>
-      <app-articulos-component *ngFor="let articulo of listaArticulos; let i = index" [articulo]="articulo" [i]="i"(totalCambiado)="cambioArticulo($event)" (idEliminar)="eliminar($event)">
+      <app-articulos-component *ngFor="let articulo of listaArticulos; let i = index" [articulo]="articulo" [i]="i" (totalCambiado)="cambioArticulo($event)" (idEliminar)="eliminar($event)">
       </app-articulos-component>
       <div class="row">
         <div class="col-1"></div>
