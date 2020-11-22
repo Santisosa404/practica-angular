@@ -11,11 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { PlanetsService } from './services/planets.service';
 import { PlanetsListadoComponent } from './component/planets-listado/planets-listado.component';
+import { PelisListadoComponent } from './component/pelis-listado/pelis-listado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlanetsListadoComponent
+    PlanetsListadoComponent,
+    PelisListadoComponent
   ],
   imports: [
     BrowserModule,

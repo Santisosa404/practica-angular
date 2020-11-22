@@ -1,11 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PelisResponse } from '../pelis-response.interface';
 
-import { Planet } from '../planet.interface';
-import { PlanetResponse } from '../planet-response.interface';
-
-const authURL = 'https://swapi.dev/api/planets/';
+const authURL = 'https://swapi.dev/api/films/';
 const requestOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -14,18 +12,13 @@ const requestOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class PlanetsService {
+export class PelisService{
 
-  constructor(private http: HttpClient) { }
-
-  getPlanets(): Observable<PlanetResponse> {
-    return this.http.get<PlanetResponse>(
+  constructor(private http:HttpClient) { }
+  getPelis(): Observable<PelisResponse> {
+    return this.http.get<PelisResponse>(
       authURL,
       requestOptions
     );
   }
-
-
-
-
 }
