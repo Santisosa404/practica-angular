@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MiniStarWars
 Proyecto por Santiago Sosa Diaz
 
