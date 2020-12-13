@@ -1,27 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListadoPeopleComponent } from './listado-people/listado-people.component';
-import {HttpClientModule} from '@angular/common/http';
+import { ListaAutoresComponent } from './lista-autores/lista-autores.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
-import { PeopleServiceService } from './service/people-service.service';
+import { AutoresService } from './services/autores.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListadoPeopleComponent
+    ListaAutoresComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
-  providers: [PeopleServiceService],
+  providers: [
+    AutoresService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
