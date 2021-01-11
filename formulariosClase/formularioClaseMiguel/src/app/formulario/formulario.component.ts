@@ -16,7 +16,10 @@ export class FormularioComponent implements OnInit {
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', [Validators.required /*,this.validatorPassword *//*, this.validar*/]],
+      password: ['', Validators.required],
+      password2:['']
+    },{
+      validator: this.passwordEqualsValidator('password', 'password2')
     });
 
   }
@@ -47,7 +50,20 @@ export class FormularioComponent implements OnInit {
   //     return false;
   //   }
   // }
-
+  passwordEqualsValidator(passwordName: string, passwordRepeatName: string){
+    return (formGroup: FormGroup) => {
+        const password = formGroup.controls[passwordName];
+        const passwordRepeat = formGroup.controls[passwordRepeatName];
+        if (passwordRepeat.errors && !passwordRepeat.errors.confirmedValidator) {
+            return;
+        }
+        if (password.value !== passwordRepeat.value) {
+          passwordRepeat.setErrors({ passwordEqualsError: true });
+        } else {
+          passwordRepeat.setErrors(null);
+        }
+    }
+}
   imprimirForm() {
     console.log(this.formularioRegistro.getRawValue());
 

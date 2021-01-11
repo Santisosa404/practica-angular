@@ -52,7 +52,7 @@
         <input matInput placeholder="Repetir contraseña" type="password" [(ngModel)]="pass" [ngModelOptions]="{standalone: true}" >
       </mat-form-field>
     </fieldset>
-    <p *ngIf="formularioRegistro.get('password').hasError('passwordError')"></p>
+    <p *ngIf="formularioRegistro.get('password').hasError('passwordError')"> Clave no coincidentes</p>
   </div>
   <br>
   <button (click)="imprimirForm()">Imprimir</button>
