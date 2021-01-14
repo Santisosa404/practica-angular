@@ -4,7 +4,7 @@ export class Student{
 }
 
 class StudentData{
-  fistname:string;
+  firstname:string;
   lastname:string;
   age:number;
   curso:string;

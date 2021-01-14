@@ -11,7 +11,7 @@ import { StudentsService } from 'src/app/service/students.service';
 export class StudentListComponent implements OnInit {
   studentsList:Student[];
   dataSource = new MatTableDataSource();
-  displayedColumns:string[] = ['firstName','lastName','curso','edad']
+  displayedColumns:string[] = ['firstname','lastname','curso','age','id']
   constructor(private studentsService: StudentsService) { }
 
   ngOnInit(): void {
@@ -23,6 +23,8 @@ export class StudentListComponent implements OnInit {
         }as Student;
       });
       this.dataSource.data = this.studentsList;
+      console.log(this.studentsList);
+
     });
   }
 
