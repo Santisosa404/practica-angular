@@ -28,4 +28,13 @@ export class StudentListComponent implements OnInit {
     });
   }
 
+  createStudent(student:Student){
+    this.studentsService.createStudent(student);
+  }
+  updateStudent(student:Student){
+    this.studentsService.updateStudent(student);
+  }
+  deleteStudentById(id:string){
+    this.studentsService.deleteStudentById(id);
+  }
 }
