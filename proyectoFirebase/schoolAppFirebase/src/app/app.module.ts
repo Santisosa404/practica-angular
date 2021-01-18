@@ -9,11 +9,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { StudentsService } from './service/students.service';
-import {MatTableModule} from '@angular/material/table'
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
-    StudentListComponent
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,
