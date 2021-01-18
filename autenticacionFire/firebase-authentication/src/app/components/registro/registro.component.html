@@ -1,0 +1,19 @@
+<h1>Registro</h1>
+<mat-form-field>
+  <p>Nombre de Usuario</p>
+  <input type="text" placeholder="Nombre de Usuario" #userName required>
+</mat-form-field>
+<br>
+<br>
+<mat-form-field>
+  <p>Contraseña</p>
+  <input type="password" placeholder="Contraseña" #userPassword required>
+</mat-form-field>
+<br>
+<br>
+<input type="button" class="btn btnPrimary" value="Iniciar Sesion" (click)="authService.registrarse(userName.value, userPassword.value)">
+
+<br>
+<div class="redirectToLogin">
+<span class="redirect" routerLink="/login">¿Ya dispone de una cuenta? Inicie sesión</span>
+</div>

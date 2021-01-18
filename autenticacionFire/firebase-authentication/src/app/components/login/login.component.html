@@ -1,0 +1,23 @@
+<h1>Login</h1>
+<mat-form-field>
+  <p>Nombre de Usuario</p>
+  <mat-label>Nombre de usuario</mat-label>
+  <input type="text" placeholder="Nombre de Usuario" #userName required>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <p>Contraseña</p>
+  <mat-label>Contraseña</mat-label>
+  <input type="password" placeholder="Contraseña" #userPassword required>
+</mat-form-field>
+<br>
+<input type="button" class="btn btnPrimary" value="Iniciar Sesion" (click)="authService.login(userName.value, userPassword.value)">
+<br>
+<br>
+<div class="forgotPassword">
+  <span routerLink="/recuperar">¿Olvidó su contraseña?</span>
+</div>
+
+<div class="redirectToLogin">
+<span class="redirect" routerLink="/registro">¿Sin cuenta todavía? Registrese</span>
+</div>

@@ -20,4 +20,7 @@ export class CreateDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save(){
+    
+  }
 }

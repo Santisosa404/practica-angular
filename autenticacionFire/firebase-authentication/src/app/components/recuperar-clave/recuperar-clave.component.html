@@ -1,0 +1,14 @@
+<h2>Recuperar contraseña</h2>
+
+<mat-form-field>
+  <p>Correo de recuperación</p>
+  <input type="email" placeholder="Email de recuperacion" #passwordResetEmail required>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input type="button" value="Recuperar Contraseña" (click)="authService.ForgotPassword(passwordResetEmail)">
+</mat-form-field>
+<br>
+<div class="redirectToLogin">
+  <span>Go back to ? <span class="redirect" routerLink="/login">Log In</span></span>
+</div>
