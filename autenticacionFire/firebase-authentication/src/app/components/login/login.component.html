@@ -11,7 +11,8 @@
   <input type="password" placeholder="Contraseña" #userPassword required>
 </mat-form-field>
 <br>
-<input type="button" class="btn btnPrimary" value="Iniciar Sesion" (click)="authService.login(userName.value, userPassword.value)">
+<input type="button" class="btn btnPrimary" value="Iniciar Sesion"
+  (click)="authService.login(userName.value, userPassword.value)">
 <br>
 <br>
 <div class="forgotPassword">
@@ -19,5 +20,7 @@
 </div>
 
 <div class="redirectToLogin">
-<span class="redirect" routerLink="/registro">¿Sin cuenta todavía? Registrese</span>
+  <span class="redirect" routerLink="/registro">¿Sin cuenta todavía? Registrese</span>
 </div>
+
+  <button class="redirectToGoogle" (click)='authService.AuthLogin()'>Con google</button>

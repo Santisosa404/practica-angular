@@ -3,9 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { User } from "../services/user";
-import  'firebase/app';
-import { auth } from 'firebaseui';
-
+import firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -55,12 +53,12 @@ export class AuthserviceService {
       });
   }
 
-  SendVerificationMail() {
-    return this.afAuth.currentUser.sendEmailVerification()
-      .then(() => {
-        this.router.navigate(['verificar-email']);
-      });
-  }
+  // SendVerificationMail() {
+  //   return this.afAuth.currentUser.sendEmailVerification()
+  //     .then(() => {
+  //       this.router.navigate(['verificar-email']);
+  //     });
+  // }
 
   ForgotPassword(emailRecuperacion) {
     return this.afAuth.sendPasswordResetEmail(emailRecuperacion)
@@ -83,26 +81,25 @@ export class AuthserviceService {
       merge: true
     });
   }
+
   get logueado(): boolean {
     const user = JSON.parse(localStorage.getItem('usuario'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
   AuthLogin(provider) {
-    return this.afAuth.signInWithPopup(provider)
+    return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
-        })
+        });
         this.SetUserData(result.user);
+        localStorage.setItem('userId',result.user.uid);
       }).catch((error) => {
         alert(error)
       });
   }
 
-  // GoogleAuth(){
-  //   return this.AuthLogin(new )
-  // }
 
 
 

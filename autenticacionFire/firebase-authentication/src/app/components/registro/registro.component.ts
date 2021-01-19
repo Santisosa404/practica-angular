@@ -8,9 +8,10 @@ import { AuthserviceService } from 'src/app/shared/services/authservice.service'
 })
 export class RegistroComponent implements OnInit {
 
-  constructor(public authService : AuthserviceService) { }
+  constructor(public authService: AuthserviceService) { }
 
   ngOnInit(): void {
+
   }
 
 }
