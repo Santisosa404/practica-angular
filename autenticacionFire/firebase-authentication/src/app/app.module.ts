@@ -8,21 +8,22 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { RecuperarClaveComponent } from './components/recuperar-clave/recuperar-clave.component';
-import { VerificarEmailComponent } from './components/verificar-email/verificar-email.component';
 import { AuthserviceService } from './shared/services/authservice.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormField } from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
+import { RegistroComponent } from './components/registro/registro.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    RecuperarClaveComponent,
-    VerificarEmailComponent
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,9 @@ import { MatFormField } from '@angular/material/form-field';
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    PasswordStrengthMeterModule,
     FormsModule,
     MatInputModule,
     MatButtonModule,

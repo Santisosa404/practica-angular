@@ -87,7 +87,7 @@ export class AuthserviceService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  AuthLogin(provider) {
+  AuthLogin() {
     return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((result) => {
         this.ngZone.run(() => {

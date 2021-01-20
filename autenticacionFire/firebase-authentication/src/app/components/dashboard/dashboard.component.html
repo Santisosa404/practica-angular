@@ -1,1 +1,20 @@
-<p>Todo ha ido correctamente</p>
+<div>
+<mat-form-field appearance="standard">
+  <mat-label>Nueva contraseña</mat-label>
+  <input type="password" matInput placeholder="Placeholder" id="pass">
+  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+</mat-form-field>
+<br>
+<mat-form-field appearance="standard">
+  <mat-label>Repita la contraseña</mat-label>
+    <input type="password" matInput placeholder="Placeholder">
+  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  <password-strength-meter [password]="password">
+  </password-strength-meter>
+</mat-form-field>
+
+<input type="button" value="Cambiar contraseña" (click)="updatePassword()">
+</div>
+
+
+<span> </span>

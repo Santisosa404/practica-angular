@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthserviceService } from 'src/app/shared/services/authservice.service';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',

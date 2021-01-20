@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,12 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  usuarioActual = localStorage.getItem('userId');
-  constructor() { }
+  idUsuario = localStorage.getItem('userId');
+  password;
+
+  constructor(public afs : AngularFirestore) { }
 
   ngOnInit(): void {
-    console.log(this.usuarioActual);
+    console.log(this.idUsuario);
 
+  }
+
+
+  updatePassword(){
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`usuario/${this.idUsuario}`);
   }
 // guardas uid result.user.iud
 }
